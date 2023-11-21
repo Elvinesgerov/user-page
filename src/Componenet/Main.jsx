@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 const Main = () => {
     let h1 = document.querySelector("h1");
+
     const [inputDegeri, setInputDegeri] = useState('');
     const handleInputChange = (event) => {
         setInputDegeri(event.target.value);
@@ -14,6 +15,11 @@ const Main = () => {
     const inputEmail = (e) =>{
         setEmail(e.target.value)
     }
+
+    const[user, setUser] = useState('');
+    const inputUser = (e2) =>{
+        setUser(e2.target.value)
+    }
     
     function num() {
         let a = inputDegeri.endsWith("ru")
@@ -23,6 +29,7 @@ const Main = () => {
            h1.innerHTML = "Ugurla Qeyddiyyatdan Kecdiz"
            setEmail("")
            setInputDegeri("")
+           setUser("")
            
         } else if (a == false && b.length < 8) {
             alert("Deyerleri duzgun daxil edin")
@@ -40,7 +47,7 @@ const Main = () => {
         <div className='userlogin'>
             <center>
                 <h1></h1>
-            <input type="text" placeholder='User' />
+            <input type="text" value={user} onChange={inputUser} placeholder='User' />
                 <br />
                 <input value={inputDegeri} onChange={handleInputChange}  className='email1' type="email" placeholder='Email' />
                 <br />
